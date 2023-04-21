@@ -30,7 +30,7 @@ public class Participante implements Serializable {
     private String cpf;
     @Column(name = "dt_nascimento")
     private LocalDate dataNascimento;
-    @Column(name = "dt_ingressso")
+    @Column(name = "dt_ingresso")
     private LocalDate dataIngresso;
     @Column
     @Enumerated(EnumType.STRING)
