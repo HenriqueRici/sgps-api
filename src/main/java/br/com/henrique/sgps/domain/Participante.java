@@ -3,10 +3,7 @@ package br.com.henrique.sgps.domain;
 import br.com.henrique.sgps.domain.enuns.Classe;
 import br.com.henrique.sgps.domain.enuns.Nivel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -17,6 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 public class Participante implements Serializable {
     @Serial
     private static final long serialVersionUID = -9134120161347242146L;
