@@ -14,10 +14,8 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class CreateUsuario {
 
-    @Autowired
     private final UsuarioRepository usuarioRepository;
 
-    @Autowired
     private final FindPerfilByNome findPerfilByNome;
     public Usuario execute(CreateUsuarioParticipanteRequest request) {
 

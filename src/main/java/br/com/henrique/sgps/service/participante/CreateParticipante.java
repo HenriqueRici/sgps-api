@@ -16,11 +16,11 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class CreateParticipante {
 
-    @Autowired
+
     private final CreateUsuario createUsuario;
-    @Autowired
+
     private final ParticipanteRepository participanteRepository;
-    @Autowired
+
     private final ExistsParticipanteByCPF existsParticipanteByCPF;
     public CreateParticipanteResponse execute(CreateParticipanteRequest request) {
         checkIfCpfAlreadyExists(request);

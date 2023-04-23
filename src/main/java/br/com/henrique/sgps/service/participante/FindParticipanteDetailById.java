@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class FindParticipanteDetailById {
 
-    @Autowired
     private final FindParticipanteById findParticipanteById;
 
     public FindParticipanteDetailByIdResponse execute(Integer id){

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class FindPerfilByNome {
-    @Autowired
+
     private final PerfilRepository repository;
 
     public Perfil execute(PerfilEnum perfilEnum){

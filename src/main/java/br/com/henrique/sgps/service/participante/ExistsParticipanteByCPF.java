@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ExistsParticipanteByCPF {
 
-    @Autowired
     private final ParticipanteRepository repository;
 
     public boolean execute(String cpf){

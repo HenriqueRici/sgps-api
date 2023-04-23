@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class FindAllParticipante {
-    @Autowired
+
     private final ParticipanteRepository repository;
 
     public List<Participante> execute(){

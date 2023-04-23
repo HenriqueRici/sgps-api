@@ -22,9 +22,9 @@ import java.util.function.Supplier;
 @AllArgsConstructor
 public class UpdateParticipante {
 
-    @Autowired
+
     private final ParticipanteRepository participanteRepository;
-    @Autowired
+
     private final FindParticipanteById findParticipanteById;
 
     public UpdateParticipanteResponse execute(Integer id, UpdateParticipanteRequest request) {

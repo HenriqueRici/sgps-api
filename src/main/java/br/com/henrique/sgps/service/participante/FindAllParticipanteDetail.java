@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class FindAllParticipanteDetail {
-    @Autowired
+
     private final FindAllParticipante findAllParticipante;
 
     public List<FindAllParticipanteDetailResponse> execute(){
