@@ -3,11 +3,13 @@ package br.com.henrique.sgps.service.participante;
 import br.com.henrique.sgps.domain.Participante;
 import br.com.henrique.sgps.domain.Usuario;
 import br.com.henrique.sgps.dtos.CreateUsuarioParticipanteRequest;
+import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
 import br.com.henrique.sgps.dtos.participante.CreateParticipanteResponse;
-import br.com.henrique.sgps.dtos.seletivo.CreateParticipanteRequest;
+import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
 import br.com.henrique.sgps.exceptions.DataIntegratyViolationException;
 import br.com.henrique.sgps.repository.ParticipanteRepository;
 import br.com.henrique.sgps.service.usuario.CreateUsuario;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,7 @@ public class CreateParticipante {
 
     private final ExistsParticipanteByCPF existsParticipanteByCPF;
 
-    public CreateParticipanteResponse execute(CreateParticipanteRequest request) {
+    public CreateParticipanteResponse execute(@Valid CreateParticipanteRequest request) {
         checkIfCpfAlreadyExists(request);
         checkIfCpfIsTheSame(request);
         checkIfSenhaIsTheSame(request);

@@ -1,4 +1,4 @@
-package br.com.henrique.sgps.dtos.seletivo;
+package br.com.henrique.sgps.dtos.participante;
 
 import br.com.henrique.sgps.domain.enuns.Classe;
 import br.com.henrique.sgps.domain.enuns.Nivel;

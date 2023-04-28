@@ -1,6 +1,6 @@
 package br.com.henrique.sgps.dtos;
 
-import br.com.henrique.sgps.dtos.seletivo.CreateParticipanteRequest;
+import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
