@@ -1,6 +1,6 @@
 package br.com.henrique.sgps.exceptions;
 
-public class DataIntegratyViolationException extends RuntimeException{
+public class DataIntegratyViolationException extends RuntimeException {
 
 
     public DataIntegratyViolationException(String message) {

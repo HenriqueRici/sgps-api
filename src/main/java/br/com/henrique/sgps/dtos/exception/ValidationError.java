@@ -3,10 +3,10 @@ package br.com.henrique.sgps.dtos.exception;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValidationError extends StandardError{
+public class ValidationError extends StandardError {
     private static final long serialVersionUID = 1L;
 
-    private List<FildMessage> errors = new ArrayList<>();
+    private final List<FildMessage> errors = new ArrayList<>();
 
     public ValidationError() {
         super();
@@ -21,6 +21,6 @@ public class ValidationError extends StandardError{
     }
 
     public void addError(String fildName, String message) {
-        this.errors.add(new FildMessage(fildName,message));
+        this.errors.add(new FildMessage(fildName, message));
     }
 }

@@ -1,4 +1,5 @@
-package br.com.henrique.sgps.dtos.participante;
+package br.com.henrique.sgps.dtos.seletivo;
+
 import br.com.henrique.sgps.domain.enuns.Classe;
 import br.com.henrique.sgps.domain.enuns.Nivel;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -9,9 +10,9 @@ import lombok.Getter;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
+
 @Getter
 public class CreateParticipanteRequest {
-
 
 
     @NotNull

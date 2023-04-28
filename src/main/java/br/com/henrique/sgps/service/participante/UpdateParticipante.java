@@ -2,16 +2,10 @@ package br.com.henrique.sgps.service.participante;
 
 import br.com.henrique.sgps.domain.Participante;
 import br.com.henrique.sgps.domain.Usuario;
-import br.com.henrique.sgps.dtos.CreateUsuarioParticipanteRequest;
-import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
-import br.com.henrique.sgps.dtos.participante.CreateParticipanteResponse;
 import br.com.henrique.sgps.dtos.participante.UpdateParticipanteRequest;
 import br.com.henrique.sgps.dtos.participante.UpdateParticipanteResponse;
-import br.com.henrique.sgps.exceptions.DataIntegratyViolationException;
 import br.com.henrique.sgps.repository.ParticipanteRepository;
-import br.com.henrique.sgps.service.usuario.CreateUsuario;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -41,13 +35,13 @@ public class UpdateParticipante {
         return UpdateParticipanteResponse.of(savedParticipante);
     }
 
-    private <T> void maybeUpdate(Supplier<T> supplier, Consumer<T> consumer){
+    private <T> void maybeUpdate(Supplier<T> supplier, Consumer<T> consumer) {
         T supplierValue = supplier.get();
         if (Objects.isNull(supplierValue)) return;
         consumer.accept(supplierValue);
     }
 
-    private void maybeUpdateUsuario(Participante participante, UpdateParticipanteRequest request){
+    private void maybeUpdateUsuario(Participante participante, UpdateParticipanteRequest request) {
         Usuario usuario = participante.getUsuario();
         maybeUpdate(request::getSenha, usuario::setSenha);
         participante.setUsuario(usuario);

@@ -5,7 +5,6 @@ import br.com.henrique.sgps.domain.enuns.PerfilEnum;
 import br.com.henrique.sgps.exceptions.ObjectNotFoundException;
 import br.com.henrique.sgps.repository.PerfilRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,8 +13,8 @@ public class FindPerfilByNome {
 
     private final PerfilRepository repository;
 
-    public Perfil execute(PerfilEnum perfilEnum){
-       return this.repository.findPerfilByNome(perfilEnum.name())
-               .orElseThrow(() -> new ObjectNotFoundException("Perfil não encontrado!"));
+    public Perfil execute(PerfilEnum perfilEnum) {
+        return this.repository.findPerfilByNome(perfilEnum.name())
+                .orElseThrow(() -> new ObjectNotFoundException("Perfil não encontrado!"));
     }
 }

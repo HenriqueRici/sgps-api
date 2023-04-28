@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SgpsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SgpsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SgpsApplication.class, args);
+    }
 
 }

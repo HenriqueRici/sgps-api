@@ -1,8 +1,6 @@
 package br.com.henrique.sgps.dtos;
 
-import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import br.com.henrique.sgps.dtos.seletivo.CreateParticipanteRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

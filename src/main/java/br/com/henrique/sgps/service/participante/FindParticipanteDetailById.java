@@ -2,7 +2,6 @@ package br.com.henrique.sgps.service.participante;
 
 import br.com.henrique.sgps.dtos.participante.FindParticipanteDetailByIdResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +10,7 @@ public class FindParticipanteDetailById {
 
     private final FindParticipanteById findParticipanteById;
 
-    public FindParticipanteDetailByIdResponse execute(Integer id){
+    public FindParticipanteDetailByIdResponse execute(Integer id) {
         return FindParticipanteDetailByIdResponse.of(this.findParticipanteById.execute(id));
     }
 }

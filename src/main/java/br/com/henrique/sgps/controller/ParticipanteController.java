@@ -1,6 +1,7 @@
 package br.com.henrique.sgps.controller;
 
 import br.com.henrique.sgps.dtos.participante.*;
+import br.com.henrique.sgps.dtos.seletivo.CreateParticipanteRequest;
 import br.com.henrique.sgps.service.participante.CreateParticipante;
 import br.com.henrique.sgps.service.participante.FindAllParticipanteDetail;
 import br.com.henrique.sgps.service.participante.FindParticipanteDetailById;
