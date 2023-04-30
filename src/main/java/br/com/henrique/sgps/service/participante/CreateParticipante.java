@@ -5,7 +5,6 @@ import br.com.henrique.sgps.domain.Usuario;
 import br.com.henrique.sgps.dtos.CreateUsuarioParticipanteRequest;
 import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
 import br.com.henrique.sgps.dtos.participante.CreateParticipanteResponse;
-import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
 import br.com.henrique.sgps.exceptions.DataIntegratyViolationException;
 import br.com.henrique.sgps.repository.ParticipanteRepository;
 import br.com.henrique.sgps.service.usuario.CreateUsuario;

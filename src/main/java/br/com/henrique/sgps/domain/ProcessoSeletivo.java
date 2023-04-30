@@ -6,6 +6,7 @@ import lombok.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -35,5 +36,8 @@ public class ProcessoSeletivo implements Serializable {
     private LocalDateTime dataInicioRetificacao;
     @Column(name = "dt_fim_retificacao")
     private LocalDateTime dataFimRetificacao;
+
+    @OneToMany(mappedBy = "processoSeletivo")
+    private Set<Inscricao> inscricoes;
 
 }
