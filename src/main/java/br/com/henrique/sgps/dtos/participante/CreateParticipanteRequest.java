@@ -6,12 +6,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
 @Getter
+@Builder
 public class CreateParticipanteRequest {
 
 
@@ -41,10 +43,14 @@ public class CreateParticipanteRequest {
     @NotNull
     @NotBlank
     private final String confirmacaoSenha;
+    @NotNull
+    private final Integer idProcessoSeletivo;
 
 
     @JsonCreator
-    public CreateParticipanteRequest(String nome, String cpf, String confirmacaoCpf, LocalDate dataNascimento, LocalDate dataIngresso, Classe classe, Nivel nivel, String senha, String confirmacaoSenha) {
+    public CreateParticipanteRequest(String nome, String cpf, String confirmacaoCpf,
+                                     LocalDate dataNascimento, LocalDate dataIngresso,
+                                     Classe classe, Nivel nivel, String senha, String confirmacaoSenha, Integer idProcessoSeletivo) {
         this.nome = nome;
         this.cpf = cpf;
         this.confirmacaoCpf = confirmacaoCpf;
@@ -54,5 +60,6 @@ public class CreateParticipanteRequest {
         this.nivel = nivel;
         this.senha = senha;
         this.confirmacaoSenha = confirmacaoSenha;
+        this.idProcessoSeletivo = idProcessoSeletivo;
     }
 }

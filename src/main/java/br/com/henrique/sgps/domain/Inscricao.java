@@ -35,6 +35,7 @@ public class Inscricao implements Serializable {
     private LocalDateTime dataInscricao;
 
     @Column(name = "situacao_validacao")
+    @Enumerated(EnumType.STRING)
     private SituacaoInscricao situacaoInscricao;
 
     @PrePersist

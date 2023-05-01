@@ -28,8 +28,9 @@ public class ParticipanteController {
     private final FindAllParticipanteDetail findAllParticipanteDetail;
 
 
-    @PostMapping
-    public ResponseEntity<CreateParticipanteResponse> create(@Valid @RequestBody CreateParticipanteRequest request) {
+
+    @PostMapping("/primeira-inscricao")
+    public ResponseEntity<CreateParticipanteResponse> createPrimeiraInscricao(@Valid @RequestBody CreateParticipanteRequest request) {
         var response = createParticipante.execute(request);
         return ResponseEntity.ok(response);
     }

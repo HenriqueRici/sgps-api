@@ -1,5 +1,6 @@
 package br.com.henrique.sgps.service.participante;
 
+import br.com.henrique.sgps.domain.Inscricao;
 import br.com.henrique.sgps.domain.Participante;
 import br.com.henrique.sgps.domain.Usuario;
 import br.com.henrique.sgps.dtos.CreateUsuarioParticipanteRequest;
@@ -7,6 +8,7 @@ import br.com.henrique.sgps.dtos.participante.CreateParticipanteRequest;
 import br.com.henrique.sgps.dtos.participante.CreateParticipanteResponse;
 import br.com.henrique.sgps.exceptions.DataIntegratyViolationException;
 import br.com.henrique.sgps.repository.ParticipanteRepository;
+import br.com.henrique.sgps.service.inscricao.CreateInscricao;
 import br.com.henrique.sgps.service.usuario.CreateUsuario;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -23,12 +25,14 @@ public class CreateParticipante {
 
     private final ExistsParticipanteByCPF existsParticipanteByCPF;
 
+    private final CreateInscricao createInscricao;
+
     public CreateParticipanteResponse execute(@Valid CreateParticipanteRequest request) {
-        checkIfCpfAlreadyExists(request);
         checkIfCpfIsTheSame(request);
         checkIfSenhaIsTheSame(request);
 
         Usuario usuario = createUsuario.execute(CreateUsuarioParticipanteRequest.of(request));
+
         var participante = Participante.builder()
                 .nome(request.getNome())
                 .cpf(request.getCpf())
@@ -39,13 +43,11 @@ public class CreateParticipante {
                 .usuario(usuario)
                 .build();
         Participante savedParticipante = participanteRepository.save(participante);
+        createInscricao.execute(request.getIdProcessoSeletivo(), savedParticipante);
         return CreateParticipanteResponse.of(savedParticipante);
     }
 
-    public void checkIfCpfAlreadyExists(CreateParticipanteRequest request) {
-        if (!this.existsParticipanteByCPF.execute(request.getCpf())) return;
-        throw new DataIntegratyViolationException("CPF já cadastrado na base de dados!");
-    }
+
 
     private void checkIfCpfIsTheSame(CreateParticipanteRequest request) {
         if (request.getCpf().equals(request.getConfirmacaoCpf())) return;
