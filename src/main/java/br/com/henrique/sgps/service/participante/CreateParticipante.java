@@ -1,6 +1,5 @@
 package br.com.henrique.sgps.service.participante;
 
-import br.com.henrique.sgps.domain.Inscricao;
 import br.com.henrique.sgps.domain.Participante;
 import br.com.henrique.sgps.domain.Usuario;
 import br.com.henrique.sgps.dtos.CreateUsuarioParticipanteRequest;
@@ -46,7 +45,6 @@ public class CreateParticipante {
         createInscricao.execute(request.getIdProcessoSeletivo(), savedParticipante);
         return CreateParticipanteResponse.of(savedParticipante);
     }
-
 
 
     private void checkIfCpfIsTheSame(CreateParticipanteRequest request) {

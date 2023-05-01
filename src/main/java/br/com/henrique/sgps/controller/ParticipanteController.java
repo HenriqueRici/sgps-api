@@ -2,10 +2,7 @@ package br.com.henrique.sgps.controller;
 
 
 import br.com.henrique.sgps.dtos.participante.*;
-import br.com.henrique.sgps.service.participante.CreateParticipante;
-import br.com.henrique.sgps.service.participante.FindAllParticipanteDetail;
-import br.com.henrique.sgps.service.participante.FindParticipanteDetailById;
-import br.com.henrique.sgps.service.participante.UpdateParticipante;
+import br.com.henrique.sgps.service.participante.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +18,24 @@ public class ParticipanteController {
 
     private final CreateParticipante createParticipante;
 
+    private final CreateInscricaoParticipante createInscricaoParticipante;
+
     private final UpdateParticipante updateParticipante;
 
     private final FindParticipanteDetailById findParticipanteDetailById;
 
     private final FindAllParticipanteDetail findAllParticipanteDetail;
 
+    private final ExistsParticipanteByCPF existsParticipanteByCPF;
+
+    private final VerificaCPF verificaCPF;
+
+
+    @PostMapping("/inscricao")
+    public ResponseEntity<CreateInscricaoResponse> createInscricao(@Valid @RequestBody CreateInscricaoRequest request) {
+        var response = createInscricaoParticipante.execute(request);
+        return ResponseEntity.ok(response);
+    }
 
 
     @PostMapping("/primeira-inscricao")
@@ -56,5 +65,11 @@ public class ParticipanteController {
         return ResponseEntity.ok(response);
     }
 
+
+    @GetMapping("/verifica-cpf/{cpf}")
+    public ResponseEntity<VerificaCPFResponse> verificaCPF(@PathVariable String cpf){
+        VerificaCPFResponse response = verificaCPF.execute(cpf);
+        return ResponseEntity.ok(response);
+    }
 
 }
