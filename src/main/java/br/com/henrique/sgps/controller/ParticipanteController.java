@@ -56,6 +56,9 @@ public class ParticipanteController {
         return ResponseEntity.ok(response);
     }
 
+
+
+
     @PutMapping("/{id}")
     public ResponseEntity<UpdateParticipanteResponse> update(
             @PathVariable Integer id,

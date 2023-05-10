@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface ParticipanteRepository extends JpaRepository<Participante, Integer> {
 
-    @Query("SELECT obj FROM Participante obj WHERE obj.cpf =:cpf")
+    @Query("SELECT obj FROM Participante obj WHERE obj.cpf = :cpf")
     Optional<Participante> findByCPF(@Param("cpf") String cpf);
 
     boolean existsParticipanteByCpf(String cpf);

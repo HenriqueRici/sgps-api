@@ -23,6 +23,8 @@ public class ProcessoSeletivoController {
 
     private final UpdateProcessoSeletivo updateProcessoSeletivo;
 
+    private FindAllParticipanteDetailByEdital findAllParticipantesByEdital;
+
     @PostMapping
     public ResponseEntity<CreateProcessoSeletivoResponse> create(@Valid @RequestBody CreateProcessoSeletivoRequest request) {
         var response = createProcessoSeletivo.execute(request);
@@ -40,6 +42,15 @@ public class ProcessoSeletivoController {
         List<FindAllProcessoSeletivoDetailResponse> response = this.findAllProcessoSeletivoDetail.execute();
         return ResponseEntity.ok(response);
     }
+
+
+    @GetMapping("/{idProcessoSeletivo}/participantes")
+    public ResponseEntity<List<FindAllParticipanteDetailByEditalResponse>> FindAllParticipantesByEdital(@PathVariable Integer idProcessoSeletivo){
+        var response = this.findAllParticipantesByEdital.execute(idProcessoSeletivo);
+        return ResponseEntity.ok(response);
+    }
+
+
 
     @PutMapping("/{id}")
     public ResponseEntity<UpdateProcessoSeletivoResponse> update(

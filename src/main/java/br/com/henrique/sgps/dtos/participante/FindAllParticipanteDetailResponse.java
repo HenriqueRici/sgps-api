@@ -1,12 +1,15 @@
 package br.com.henrique.sgps.dtos.participante;
 
+import br.com.henrique.sgps.domain.Inscricao;
 import br.com.henrique.sgps.domain.Participante;
 import br.com.henrique.sgps.domain.enuns.Classe;
 import br.com.henrique.sgps.domain.enuns.Nivel;
+import br.com.henrique.sgps.domain.enuns.SituacaoInscricao;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Value;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Value
 public class FindAllParticipanteDetailResponse {
@@ -18,7 +21,7 @@ public class FindAllParticipanteDetailResponse {
     @JsonFormat(pattern = "dd/MM/yyyy")
     LocalDate dataIngresso;
     Classe classe;
-    Nivel nivel;
+    String nivel;
     String login;
 
     public static FindAllParticipanteDetailResponse of(Participante participante) {
@@ -29,7 +32,7 @@ public class FindAllParticipanteDetailResponse {
                 participante.getDataNascimento(),
                 participante.getDataIngresso(),
                 participante.getClasse(),
-                participante.getNivel(),
+                participante.getNivel().getDescricao(),
                 participante.getCpf()
         );
     }
