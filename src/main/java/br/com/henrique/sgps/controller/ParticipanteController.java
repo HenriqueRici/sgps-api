@@ -26,8 +26,6 @@ public class ParticipanteController {
 
     private final FindAllParticipanteDetail findAllParticipanteDetail;
 
-    private final ExistsParticipanteByCPF existsParticipanteByCPF;
-
     private final VerificaCPF verificaCPF;
 
 

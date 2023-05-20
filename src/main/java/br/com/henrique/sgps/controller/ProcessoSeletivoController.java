@@ -23,7 +23,9 @@ public class ProcessoSeletivoController {
 
     private final UpdateProcessoSeletivo updateProcessoSeletivo;
 
-    private FindAllParticipanteDetailByEdital findAllParticipantesByEdital;
+    private final FindAllParticipanteDetailByEdital findAllParticipantesByEdital;
+
+    private final CheckIfCpfAlreadyExistsInEdital checkIfCpfAlreadyExistsInEdital;
 
     @PostMapping
     public ResponseEntity<CreateProcessoSeletivoResponse> create(@Valid @RequestBody CreateProcessoSeletivoRequest request) {
@@ -61,4 +63,10 @@ public class ProcessoSeletivoController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/{id}/verifica-cpf/{cpf}")
+    public ResponseEntity<VerificaCPFByEditalResponse> verificaCPFByEdital(
+            @PathVariable Integer id, @PathVariable String cpf){
+        VerificaCPFByEditalResponse response =  checkIfCpfAlreadyExistsInEdital.execute(id, cpf);
+        return ResponseEntity.ok(response);
+    }
 }

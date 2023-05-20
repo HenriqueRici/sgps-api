@@ -12,13 +12,13 @@ public class FindAllProcessoSeletivoDetailResponse {
     String edital;
     String cargo;
     Integer anoReferencia;
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     LocalDateTime dataInicioInscricoes;
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     LocalDateTime dataFimInscricoes;
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     LocalDateTime dataInicioRetificacao;
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     LocalDateTime dataFimRetificacao;
 
 
