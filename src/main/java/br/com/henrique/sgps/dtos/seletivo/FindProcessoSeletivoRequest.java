@@ -19,6 +19,5 @@ public class FindProcessoSeletivoRequest {
     private final LocalDateTime dataFimInscricoes;
     private final LocalDateTime dataInicioRetificacao;
     private final LocalDateTime dataFimRetificacao;
-
-
+    private final String pathPdf;
 }

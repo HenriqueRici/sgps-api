@@ -33,10 +33,12 @@ public class CreateProcessoSeletivoRequest {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private final LocalDateTime dataFimRetificacao;
 
+    private final String pathPdf;
+
 
     @JsonCreator
     public CreateProcessoSeletivoRequest(String edital, String cargo, Integer anoReferencia, LocalDateTime dataInicioInscricoes,
-                                         LocalDateTime dataFimInscricoes, LocalDateTime dataInicioRetificacao, LocalDateTime dataFimRetificacao) {
+                                         LocalDateTime dataFimInscricoes, LocalDateTime dataInicioRetificacao, LocalDateTime dataFimRetificacao, String pathPdf) {
         this.edital = edital;
         this.cargo = cargo;
         this.anoReferencia = anoReferencia;
@@ -44,5 +46,6 @@ public class CreateProcessoSeletivoRequest {
         this.dataFimInscricoes = dataFimInscricoes;
         this.dataInicioRetificacao = dataInicioRetificacao;
         this.dataFimRetificacao = dataFimRetificacao;
+        this.pathPdf = pathPdf;
     }
 }

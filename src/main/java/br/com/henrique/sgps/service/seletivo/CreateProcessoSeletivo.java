@@ -28,6 +28,7 @@ public class CreateProcessoSeletivo {
                 .dataFimInscricoes(request.getDataFimInscricoes())
                 .dataInicioRetificacao(request.getDataInicioRetificacao())
                 .dataFimRetificacao(request.getDataFimRetificacao())
+                .pathPDF(request.getPathPdf())
                 .build();
         ProcessoSeletivo savedProcessoSeletivo = processoSeletivoRepository.save(processoSeletivo);
         return CreateProcessoSeletivoResponse.of(savedProcessoSeletivo);

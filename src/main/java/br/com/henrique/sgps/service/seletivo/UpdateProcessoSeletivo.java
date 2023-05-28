@@ -29,6 +29,7 @@ public class UpdateProcessoSeletivo {
         maybeUpdate(request::getDataFimInscricoes, processoSeletivo::setDataFimInscricoes);
         maybeUpdate(request::getDataInicioRetificacao, processoSeletivo::setDataInicioRetificacao);
         maybeUpdate(request::getDataFimRetificacao, processoSeletivo::setDataFimRetificacao);
+        maybeUpdate(request::getPathPdf, processoSeletivo::setPathPDF);
 
         ProcessoSeletivo savedProcessoSeletivo = processoSeletivoRepository.save(processoSeletivo);
         return UpdateProcessoSeletivoResponse.of(savedProcessoSeletivo);

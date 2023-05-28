@@ -22,6 +22,7 @@ public class UpdateProcessoSeletivoRequest {
     private final LocalDateTime dataInicioRetificacao;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private final LocalDateTime dataFimRetificacao;
+    private final String pathPdf;
 
 
     @JsonCreator
@@ -31,7 +32,8 @@ public class UpdateProcessoSeletivoRequest {
             LocalDateTime dataInicioInscricoes,
             LocalDateTime dataFimInscricoes,
             LocalDateTime dataInicioRetificacao,
-            LocalDateTime dataFimRetificacao
+            LocalDateTime dataFimRetificacao,
+            String pathPdf
     ) {
         this.cargo = cargo;
         this.anoReferencia = anoReferencia;
@@ -39,5 +41,6 @@ public class UpdateProcessoSeletivoRequest {
         this.dataFimInscricoes = dataFimInscricoes;
         this.dataInicioRetificacao = dataInicioRetificacao;
         this.dataFimRetificacao = dataFimRetificacao;
+        this.pathPdf = pathPdf;
     }
 }

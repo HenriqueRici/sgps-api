@@ -36,6 +36,8 @@ public class ProcessoSeletivo implements Serializable {
     private LocalDateTime dataInicioRetificacao;
     @Column(name = "dt_fim_retificacao")
     private LocalDateTime dataFimRetificacao;
+    @Column(name = "path_pdf")
+    private String pathPDF;
 
     @OneToMany(mappedBy = "processoSeletivo")
     private Set<Inscricao> inscricoes;

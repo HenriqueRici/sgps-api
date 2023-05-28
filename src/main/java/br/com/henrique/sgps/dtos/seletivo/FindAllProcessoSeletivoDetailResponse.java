@@ -20,6 +20,7 @@ public class FindAllProcessoSeletivoDetailResponse {
     LocalDateTime dataInicioRetificacao;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     LocalDateTime dataFimRetificacao;
+    String pathPdf;
 
 
     public static FindAllProcessoSeletivoDetailResponse of(ProcessoSeletivo processoSeletivo) {
@@ -31,7 +32,8 @@ public class FindAllProcessoSeletivoDetailResponse {
                 processoSeletivo.getDataInicioInscricoes(),
                 processoSeletivo.getDataFimInscricoes(),
                 processoSeletivo.getDataInicioRetificacao(),
-                processoSeletivo.getDataFimRetificacao()
+                processoSeletivo.getDataFimRetificacao(),
+                processoSeletivo.getPathPDF()
         );
     }
 }
