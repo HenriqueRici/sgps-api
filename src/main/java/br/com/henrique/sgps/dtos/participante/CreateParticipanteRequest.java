@@ -9,13 +9,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
 
 @Getter
 @Builder
 public class CreateParticipanteRequest {
-
 
     @NotNull
     @NotBlank
@@ -51,6 +51,8 @@ public class CreateParticipanteRequest {
     public CreateParticipanteRequest(String nome, String cpf, String confirmacaoCpf,
                                      LocalDate dataNascimento, LocalDate dataIngresso,
                                      Classe classe, Nivel nivel, String senha, String confirmacaoSenha, Integer idProcessoSeletivo) {
+
+
         this.nome = nome;
         this.cpf = cpf;
         this.confirmacaoCpf = confirmacaoCpf;

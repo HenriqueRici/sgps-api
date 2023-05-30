@@ -21,6 +21,7 @@ public class FindParticipanteDetailByIdResponse {
     Nivel nivel;
     String login;
 
+
     public static FindParticipanteDetailByIdResponse of(Participante participante) {
         return new FindParticipanteDetailByIdResponse(
                 participante.getId(),
@@ -31,6 +32,7 @@ public class FindParticipanteDetailByIdResponse {
                 participante.getClasse(),
                 participante.getNivel(),
                 participante.getCpf()
+
         );
     }
 }

@@ -5,6 +5,7 @@ import br.com.henrique.sgps.service.seletivo.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class ProcessoSeletivoController {
         FindProcessoSeletivoDetailByIdResponse response = this.findProcessoSeletivoDetailById.execute(id);
         return ResponseEntity.ok(response);
     }
+
 
     @GetMapping
     public ResponseEntity<List<FindAllProcessoSeletivoDetailResponse>> findAll(){
