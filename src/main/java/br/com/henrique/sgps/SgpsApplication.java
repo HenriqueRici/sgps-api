@@ -3,9 +3,9 @@ package br.com.henrique.sgps;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.stream.DoubleStream;
 
 @SpringBootApplication
 public class SgpsApplication implements CommandLineRunner {
@@ -16,5 +16,9 @@ public class SgpsApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        //System.out.println(encoder.encode("admin"));
+
     }
+
 }

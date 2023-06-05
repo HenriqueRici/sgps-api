@@ -5,6 +5,7 @@ import br.com.henrique.sgps.service.seletivo.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,9 @@ public class ProcessoSeletivoController {
 
     private final CheckIfCpfAlreadyExistsInEdital checkIfCpfAlreadyExistsInEdital;
 
+
     @PostMapping
+    @Secured("ROLE_ADMINISTRADOR")
     public ResponseEntity<CreateProcessoSeletivoResponse> create(@Valid @RequestBody CreateProcessoSeletivoRequest request) {
         var response = createProcessoSeletivo.execute(request);
         return ResponseEntity.ok(response);
@@ -49,6 +52,7 @@ public class ProcessoSeletivoController {
 
 
     @GetMapping("/{idProcessoSeletivo}/participantes")
+    @Secured("ROLE_ADMINISTRADOR")
     public ResponseEntity<List<FindAllParticipanteDetailByEditalResponse>> FindAllParticipantesByEdital(@PathVariable Integer idProcessoSeletivo){
         var response = this.findAllParticipantesByEdital.execute(idProcessoSeletivo);
         return ResponseEntity.ok(response);
@@ -57,6 +61,7 @@ public class ProcessoSeletivoController {
 
 
     @PutMapping("/{id}")
+    @Secured("ROLE_ADMINISTRADOR")
     public ResponseEntity<UpdateProcessoSeletivoResponse> update(
             @PathVariable Integer id,
             @RequestBody UpdateProcessoSeletivoRequest request

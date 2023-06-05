@@ -30,7 +30,7 @@ public class CreateUsuario {
     }
 
     private Perfil findPerfilParticipante() {
-        return this.findPerfilByNome.execute(PerfilEnum.PARTICIPANTE);
+        return this.findPerfilByNome.execute(PerfilEnum.ROLE_PARTICIPANTE);
     }
 
 }
