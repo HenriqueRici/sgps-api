@@ -15,4 +15,10 @@ public interface ParticipanteRepository extends JpaRepository<Participante, Inte
     Optional<Participante> findByCPF(@Param("cpf") String cpf);
 
     boolean existsParticipanteByCpf(String cpf);
+
+    @Query("SELECT case WHEN count(participante.id) > 0 THEN true ELSE false END " +
+            "FROM Participante participante " +
+            "WHERE participante.cpf = :cpf " +
+            "AND participante.inscricoes.processoSeletivo.id= :idSeletivo")
+    Boolean existsParticipanteByCpfAndEdital(String cpf, Integer idSeletivo);
 }

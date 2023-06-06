@@ -26,13 +26,14 @@ public class CreateParticipante {
 
     private final ParticipanteRepository participanteRepository;
     private final ProcessoSeletivoRepository processoSeletivoRepository;
-
+    private final ExistsParticipanteByCpfAndEdital existsParticipanteByCpfAndEdital;
     private final CreateInscricao createInscricao;
 
     public CreateParticipanteResponse execute(@Valid CreateParticipanteRequest request) {
         checkIfCpfIsTheSame(request);
         checkIfSenhaIsTheSame(request);
         checkPeridoInscricoes(request);
+        checkIfCpfIsSignInEdital(request.getCpf(), request.getIdProcessoSeletivo());
 
         Usuario usuario = createUsuario.execute(CreateUsuarioParticipanteRequest.of(request));
 
@@ -54,6 +55,10 @@ public class CreateParticipante {
     private void checkIfCpfIsTheSame(CreateParticipanteRequest request) {
         if (request.getCpf().equals(request.getConfirmacaoCpf())) return;
         throw new DataIntegratyViolationException("O CPF e a confirmação do CPF não são iguais!");
+    }
+
+    private void checkIfCpfIsSignInEdital(String cpf, Integer idProcessoSeletivo) {
+        this.existsParticipanteByCpfAndEdital.execute(cpf, idProcessoSeletivo);
     }
 
     private void checkIfSenhaIsTheSame(CreateParticipanteRequest request) {

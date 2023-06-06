@@ -52,8 +52,8 @@ public class ProcessoSeletivoController {
 
 
     @GetMapping("/{idProcessoSeletivo}/participantes")
-    @Secured("ROLE_ADMINISTRADOR")
-    public ResponseEntity<List<FindAllParticipanteDetailByEditalResponse>> FindAllParticipantesByEdital(@PathVariable Integer idProcessoSeletivo){
+    //@Secured("ROLE_ADMINISTRADOR")
+    public ResponseEntity<List<FindAllParticipanteDetailByEditalResponse>> findAllParticipantesByEdital(@PathVariable Integer idProcessoSeletivo){
         var response = this.findAllParticipantesByEdital.execute(idProcessoSeletivo);
         return ResponseEntity.ok(response);
     }

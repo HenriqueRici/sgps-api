@@ -18,7 +18,6 @@ public class SgpsApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         //System.out.println(encoder.encode("admin"));
-
     }
 
 }

@@ -1,7 +1,9 @@
 package br.com.henrique.sgps.controller;
 
 
+
 import br.com.henrique.sgps.dtos.participante.*;
+
 import br.com.henrique.sgps.service.participante.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -24,10 +26,12 @@ public class ParticipanteController {
 
     private final FindParticipanteDetailById findParticipanteDetailById;
 
+    private final FindParticipanteDetailByCPF findParticipanteDetailByCPF;
+
+
     private final FindAllParticipanteDetail findAllParticipanteDetail;
 
     private final VerificaCPF verificaCPF;
-
 
     @PostMapping("/inscricao")
     public ResponseEntity<CreateInscricaoResponse> createInscricao(@Valid @RequestBody CreateInscricaoRequest request) {
@@ -45,6 +49,12 @@ public class ParticipanteController {
     @GetMapping("/{id}")
     public ResponseEntity<FindParticipanteDetailByIdResponse> findById(@PathVariable Integer id) {
         FindParticipanteDetailByIdResponse response = this.findParticipanteDetailById.execute(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<FindParticipanteDetailByCPFResponse> findByCpf(@PathVariable String cpf) {
+        FindParticipanteDetailByCPFResponse response = this.findParticipanteDetailByCPF.execute(cpf);
         return ResponseEntity.ok(response);
     }
 
@@ -72,5 +82,6 @@ public class ParticipanteController {
         VerificaCPFResponse response = verificaCPF.execute(cpf);
         return ResponseEntity.ok(response);
     }
+
 
 }

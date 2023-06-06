@@ -24,12 +24,12 @@ public class CreateInscricaoParticipante {
     private final FindProcessoSeletivoById findProcessoSeletivoById;
     private final InscricaoRepository inscricaoRepository;
     private final ProcessoSeletivoRepository processoSeletivoRepository;
+    private final ExistsParticipanteByCpfAndEdital existsParticipanteByCpfAndEdital;
 
     public CreateInscricaoResponse execute(@Valid CreateInscricaoRequest request) {
 
-        if (!existsParticipanteByCPF.execute(request.getCpf()))
-            throw new DataIntegratyViolationException("O CPF não consta na base de dados!");
-
+        checkIfCpfIsAlreadyRegistered(request);
+        checkIfCpfIsSignInEdital(request.getCpf(), request.getIdProcessoSeletivo());
         checkPeridoInscricoes(request.getIdProcessoSeletivo());
 
         var inscricao = Inscricao.builder()
@@ -40,6 +40,15 @@ public class CreateInscricaoParticipante {
                 .build();
         Inscricao savedInscricao = inscricaoRepository.save(inscricao);
         return CreateInscricaoResponse.of(savedInscricao);
+    }
+
+    private void checkIfCpfIsSignInEdital(String cpf, Integer idProcessoSeletivo) {
+        this.existsParticipanteByCpfAndEdital.execute(cpf, idProcessoSeletivo);
+    }
+
+    private void checkIfCpfIsAlreadyRegistered(CreateInscricaoRequest request) {
+        if (!existsParticipanteByCPF.execute(request.getCpf()))
+            throw new DataIntegratyViolationException("O CPF não consta na base de dados!");
     }
 
     private void checkPeridoInscricoes(Integer idSeletivo){

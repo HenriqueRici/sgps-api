@@ -42,6 +42,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST,"/participantes/primeira-inscricao").permitAll()
                 .requestMatchers(HttpMethod.POST,"/participantes/inscricao").permitAll()
                 .requestMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
+                .requestMatchers(HttpMethod.GET, "/processo-seletivo/*/participantes").permitAll()
 
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

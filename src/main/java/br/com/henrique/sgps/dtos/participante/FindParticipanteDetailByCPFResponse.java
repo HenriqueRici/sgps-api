@@ -1,14 +1,20 @@
 package br.com.henrique.sgps.dtos.participante;
+
+
 import br.com.henrique.sgps.domain.Participante;
 import br.com.henrique.sgps.domain.enuns.Classe;
+import br.com.henrique.sgps.domain.enuns.Nivel;
+import br.com.henrique.sgps.dtos.inscricao.FindInscricoesByParticipante;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Value;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Value
-public class FindAllParticipanteDetailResponse {
+public class FindParticipanteDetailByCPFResponse {
     Integer id;
     String nome;
     String cpf;
@@ -19,16 +25,19 @@ public class FindAllParticipanteDetailResponse {
     Classe classe;
     String nivel;
 
-    public static FindAllParticipanteDetailResponse of(Participante participante) {
-        return new FindAllParticipanteDetailResponse(
+
+    List<FindInscricoesByParticipante> inscricaos;
+
+        public static FindParticipanteDetailByCPFResponse of(Participante participante) {
+        return new FindParticipanteDetailByCPFResponse(
                 participante.getId(),
                 participante.getNome(),
                 participante.getCpf(),
                 participante.getDataNascimento(),
                 participante.getDataIngresso(),
                 participante.getClasse(),
-                participante.getNivel().getDescricao()
-
+                participante.getNivel().getDescricao(),
+                participante.getInscricoes().stream().map(FindInscricoesByParticipante::of).collect(Collectors.toList())
         );
     }
 }
