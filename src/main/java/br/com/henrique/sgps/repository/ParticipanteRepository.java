@@ -18,7 +18,9 @@ public interface ParticipanteRepository extends JpaRepository<Participante, Inte
 
     @Query("SELECT case WHEN count(participante.id) > 0 THEN true ELSE false END " +
             "FROM Participante participante " +
+            "LEFT JOIN participante.inscricoes inscricoes " +
+            "LEFT JOIN inscricoes.processoSeletivo processoSeletivo " +
             "WHERE participante.cpf = :cpf " +
-            "AND participante.inscricoes.processoSeletivo.id= :idSeletivo")
+            "AND processoSeletivo.id = :idSeletivo")
     Boolean existsParticipanteByCpfAndEdital(String cpf, Integer idSeletivo);
 }
