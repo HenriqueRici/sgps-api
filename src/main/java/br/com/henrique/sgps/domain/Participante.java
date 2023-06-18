@@ -35,6 +35,7 @@ public class Participante implements Serializable {
     @Enumerated(EnumType.STRING)
     private Classe classe;
     @Column
+
     private Nivel nivel;
     @OneToOne
     @JoinColumn(name = "id_usuario")
@@ -43,4 +44,11 @@ public class Participante implements Serializable {
     @OneToMany(mappedBy = "participante")
     private Set<Inscricao> inscricoes;
 
+    @Transient
+    public Double getPontos() {
+        Double pontosClasse = this.getClasse().getPeso();
+        Double pontosNivel = this.getNivel().getPeso();
+
+        return pontosClasse + pontosNivel;
+    }
 }

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.fasterxml.jackson.module.paranamer.ParanamerModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 @Configuration
 public class JacksonConfiguration {
@@ -25,5 +26,10 @@ public class JacksonConfiguration {
                 .registerModule(new ParameterNamesModule());
 
         return objectMapper;
+    }
+
+    @Bean
+    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(final ObjectMapper objectMapper) {
+        return new MappingJackson2HttpMessageConverter(objectMapper);
     }
 }

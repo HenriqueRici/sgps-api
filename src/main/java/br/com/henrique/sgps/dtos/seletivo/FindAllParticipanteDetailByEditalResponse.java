@@ -3,6 +3,7 @@ package br.com.henrique.sgps.dtos.seletivo;
 import br.com.henrique.sgps.domain.Inscricao;
 import br.com.henrique.sgps.domain.Participante;
 import br.com.henrique.sgps.domain.enuns.Classe;
+import br.com.henrique.sgps.domain.enuns.Nivel;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Value;
@@ -22,7 +23,7 @@ public class FindAllParticipanteDetailByEditalResponse {
     @JsonFormat(pattern = "dd/MM/yyyy")
     LocalDate dataIngresso;
     Classe classe;
-    String nivel;
+    Nivel nivel;
     String situacaoInscricao;
 
     public static FindAllParticipanteDetailByEditalResponse of(Inscricao inscricao){
@@ -34,7 +35,7 @@ public class FindAllParticipanteDetailByEditalResponse {
                 .dataNascimento(participante.getDataNascimento())
                 .dataIngresso(participante.getDataIngresso())
                 .classe(participante.getClasse())
-                .nivel(participante.getNivel().getDescricao())
+                .nivel(participante.getNivel())
                 .situacaoInscricao(inscricao.getSituacaoInscricao().getDescricao())
                 .build();
     }

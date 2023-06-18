@@ -39,6 +39,9 @@ public class ProcessoSeletivo implements Serializable {
     @Column(name = "path_pdf")
     private String pathPDF;
 
+    @Lob
+    private byte[] resultado;
+
     @OneToMany(mappedBy = "processoSeletivo")
     private Set<Inscricao> inscricoes;
 

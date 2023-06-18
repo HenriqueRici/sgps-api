@@ -6,6 +6,8 @@ import br.com.henrique.sgps.domain.enuns.Classe;
 import br.com.henrique.sgps.domain.enuns.Nivel;
 import br.com.henrique.sgps.dtos.inscricao.FindInscricoesByParticipante;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Value;
 
 import java.time.LocalDate;

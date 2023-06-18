@@ -3,10 +3,10 @@ package br.com.henrique.sgps;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
+@EnableFeignClients
 @SpringBootApplication
 public class SgpsApplication implements CommandLineRunner {
 
@@ -15,9 +15,13 @@ public class SgpsApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         //System.out.println(encoder.encode("admin"));
+
     }
+
+
+
 
 }

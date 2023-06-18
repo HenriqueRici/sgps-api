@@ -34,6 +34,7 @@ public class CreateParticipanteRequest {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private final LocalDate dataIngresso;
     @NotNull
+
     private final Classe classe;
     @NotNull
     private final Nivel nivel;

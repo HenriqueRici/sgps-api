@@ -1,6 +1,6 @@
 --  Auto-generated SQL script #202305011237
 INSERT INTO `sgps-db`.perfil (nome)
-	VALUES ('ADMINISTRADOR');
+	VALUES ('ROLE_ADMINISTRADOR');
 INSERT INTO `sgps-db`.perfil (nome)
-	VALUES ('PARTICIPANTE');
+	VALUES ('ROLE_PARTICIPANTE');
 

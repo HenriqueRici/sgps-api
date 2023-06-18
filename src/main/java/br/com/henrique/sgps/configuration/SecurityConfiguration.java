@@ -43,6 +43,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST,"/participantes/inscricao").permitAll()
                 .requestMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
                 .requestMatchers(HttpMethod.GET, "/processo-seletivo/*/participantes").permitAll()
+                .requestMatchers(HttpMethod.GET, "/processo-seletivo/busca-resultado/*").permitAll()
 
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -50,7 +51,6 @@ public class SecurityConfiguration {
                 .addFilterBefore(this.jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
 
     @Bean
     public AuthenticationProvider authenticationProvider() {

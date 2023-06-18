@@ -6,11 +6,11 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Classe {
-    A(100),
-    B(200),
-    C(300),
-    D(400),
-    E(500);
+    A(100D),
+    B(200D),
+    C(300D),
+    D(400D),
+    E(500D);
 
-    private final Integer peso;
+    private final Double peso;
 }

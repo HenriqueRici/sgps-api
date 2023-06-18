@@ -20,5 +20,11 @@ public interface InscricaoRepository extends JpaRepository<Inscricao, Integer> {
     Optional<Inscricao> findByProcessoSeletivoAndCpf(Integer idProcessoSeletivo, String cpf);
 
 
+    @Query("SELECT obj FROM Inscricao obj " +
+            "JOIN obj.processoSeletivo processoSeletivo " +
+            "JOIN obj.participante participante " +
+            "WHERE processoSeletivo.id = :idProcessoSeletivo " +
+            "and participante.id = :idParticipante")
+    Optional<Inscricao> buscaInscricao(Integer idProcessoSeletivo, Integer idParticipante);
 }
 
