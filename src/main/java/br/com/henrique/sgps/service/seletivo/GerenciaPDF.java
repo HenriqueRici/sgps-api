@@ -78,7 +78,7 @@ public class GerenciaPDF {
             table.addCell(cell3);
             table.addCell(cell4);
 
-        //trazer a lista de resultado
+
             List<ResultadoByEdital> listResultado = geraResultadoByIdSeletivo.execute(idSeletivo);
 
             for (int i = 0; i < listResultado.size(); i++) {
@@ -88,22 +88,12 @@ public class GerenciaPDF {
                 table.addCell(String.valueOf(resultadoByEdital.getPontuacao()));
                 table.addCell(String.valueOf(i +1));
             }
-
-
             document.add(table);
-
             document.close();
 
-
-
             byte[] pdfBytes = byteArrayOutputStream.toByteArray();
-
-
             processoSeletivo.setResultado(pdfBytes);
             processoSeletivoRepository.save(processoSeletivo);
-
-
-
 
         } catch (DocumentException  e) {
             throw new RuntimeException(e);

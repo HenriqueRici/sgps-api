@@ -16,12 +16,7 @@ public class SgpsApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        //System.out.println(encoder.encode("admin"));
-
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        System.out.println(encoder.encode("admin"));
     }
-
-
-
-
 }

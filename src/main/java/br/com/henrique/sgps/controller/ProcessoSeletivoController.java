@@ -84,6 +84,7 @@ public class ProcessoSeletivoController {
     }
 
     @PostMapping("/valida-participantes/{idSeletivo}")
+    @Secured("ROLE_ADMINISTRADOR")
     public  ResponseEntity<Void> validaParticipantes(@PathVariable Integer idSeletivo){
          validaParticipanteBySeletivoId.execute(idSeletivo);
          return  ResponseEntity.status(HttpStatus.OK).build();
